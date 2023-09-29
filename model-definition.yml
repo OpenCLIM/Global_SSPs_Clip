@@ -1,0 +1,54 @@
+kind: M
+api_version: v1beta2
+metadata:
+  display_name: Global_SSPS:Clip
+  name: data-ssp-clip
+  publisher: Newcastle University
+  summary: >
+    The second model in the workflow designed to crop global ssp datasets to a specific country.
+    This model takes the global ssp datasets and crops the data to the country of interest.
+    The raster data is then aggregated to the local authority level and a gpkg file is produced.
+    This shows the population change per LAD for future projections.
+  source_code: https://github.com/OpenCLIM/impact-assessment
+  description: >
+    Global datasets are cropped according to the location selected by the user and aggregated to the LAD level.
+
+spec:
+  inputs:
+    dataslots:
+      - name: Boundary File
+        description:
+          A .gpkg file containing the boundary of the country of interest.
+        path: inputs/boundary/
+        required: false
+        
+      - name: SSP Data Sets
+        description:
+          Zip files of the global datasets for each SSP.
+        path: inputs/ssp/
+        required: false
+
+      - name: Local Authority Districts
+        description:
+          A .gpkg file containing the boundarys for each Local Authority District.
+        path: inputs/lads/
+        required: false
+
+      - name: Parameters
+        description:
+          A .csv file detailing the selected parameters - taken from the preceeding Global_SSPS:Inputs model.
+        path: inputs/parameters/
+        required: false
+ 
+  outputs:
+    datasets:
+      - name: outputs/*
+        type: folder
+        description:
+          Contains three single .gpkg files detailing projected changes in popualtion, urban and rural land form for the selected local authority areas.
+        
+      - name: outputs/parameters/*
+        type: folder
+        description:
+          All parameters and their values are stored in a csv file.
+          
