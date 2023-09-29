@@ -9,7 +9,7 @@ metadata:
     This model takes the global ssp datasets and crops the data to the country of interest.
     The raster data is then aggregated to the local authority level and a gpkg file is produced.
     This shows the population change per LAD for future projections.
-  source_code: https://github.com/OpenCLIM/impact-assessment
+  source_code: https://github.com/OpenCLIM/Global_SSPs_Clip
   description: >
     Global datasets are cropped according to the location selected by the user and aggregated to the LAD level.
 
