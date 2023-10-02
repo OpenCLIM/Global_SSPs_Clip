@@ -20,7 +20,6 @@ Global datasets are cropped according to the location selected by the user and a
 * Parameters
   * Description: A .csv file detailing the selected parameters - taken from the preceeding Global_SSPS:Inputs model.
   * Location: /data/inputs/parameters
-  * 
 
 ## Outputs
 * SSP Results
