@@ -46,7 +46,14 @@ parameters_out_path=os.path.join(outputs_path,'parameters')
 if not os.path.exists(parameters_out_path):
     os.mkdir(parameters_out_path)
 
+# Look to see if a parameter file has been added
+parameter_file = glob(parameters_path + "/*.csv", recursive = True)
+print('parameter_file:', parameter_file)
 
+# Find out which ssp was used:
+if len(parameter_file) != 0 :
+    parameters = pd.read_csv(parameter_file[0])
+    ssp = parameters.loc[1][1]
 
 ## To obtain the SSP data, we first need to unzip the global dataset and reallocate the ###
 ## urban, rural and total population rasters in appropriate folders ###
@@ -188,7 +195,7 @@ for i in range(0,len(total)):
 
 poly = gpd.read_file(lads[0])
 poly = poly.join(sum)
-total_result = os.path.join(outputs_path,'total_population_ssp1.gpkg')
+total_result = os.path.join(outputs_path,'total_population_'+ssp+'.gpkg')
 poly.to_file(total_result, driver='GPKG')
 
 
@@ -219,7 +226,7 @@ for i in range(0,len(urban)):
 
 poly = gpd.read_file(lads[0])
 poly = poly.join(sum)
-urban_result = os.path.join(outputs_path,'urban_population_ssp1.gpkg')
+urban_result = os.path.join(outputs_path,'urban_population_'+ssp+'.gpkg')
 poly.to_file(urban_result, driver='GPKG')
 
 
@@ -253,7 +260,7 @@ for i in range(0,len(rural)):
 
 poly = gpd.read_file(lads[0])
 poly = poly.join(sum)
-rural_result = os.path.join(outputs_path,'rural_population_ssp1.gpkg')
+rural_result = os.path.join(outputs_path,'rural_population_'+ssp+'.gpkg')
 poly.to_file(rural_result, driver='GPKG')
 
 
