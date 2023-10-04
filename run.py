@@ -26,14 +26,19 @@ ssp_path = os.path.join(inputs_path,'ssp')
 
 # Create the subfolder structure
 inputs_urban_path=os.path.join(inputs_path,'urban_data')
+inputs_urban_path_ = data_path + '/' + 'outputs' + '/' + 'urban_data'
 if not os.path.exists(inputs_urban_path):
-    os.mkdir(inputs_urban_path)
+    os.mkdir(inputs_urban_path_)
+
 inputs_rural_path=os.path.join(inputs_path,'rural_data')
+inputs_rural_path_ = data_path + '/' + 'outputs' + '/' + 'rural_data'
 if not os.path.exists(inputs_rural_path):
-    os.mkdir(inputs_rural_path)
+    os.mkdir(inputs_rural_path_)
+
 inputs_total_path=os.path.join(inputs_path,'total_data')
+inputs_total_path_ = data_path + '/' + 'outputs' + '/' + 'total_data'
 if not os.path.exists(inputs_total_path):
-    os.mkdir(inputs_total_path)
+    os.mkdir(inputs_total_path_)
 
 
 # Set up and create data output paths
