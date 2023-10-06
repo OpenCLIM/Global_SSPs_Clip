@@ -71,6 +71,8 @@ print('parameter_file:', parameter_file)
 if len(parameter_file) != 0 :
     parameters = pd.read_csv(parameter_file[0])
     ssp = parameters.loc[1][1]
+else
+    ssp = os.getenv('SSP')
 
 ## To obtain the SSP data, we first need to unzip the global dataset and reallocate the ###
 ## urban, rural and total population rasters in appropriate folders ###
