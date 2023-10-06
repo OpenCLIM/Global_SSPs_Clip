@@ -15,6 +15,25 @@ metadata:
 
 spec:
   inputs:
+    parameters:
+      - name: SSP
+        title: ssp
+        type: string
+        description: The socio-economic pathway of interest.
+        default: 'ssp1'
+        required: true
+        options:
+          - name: 'ssp1'
+            title: 'ssp1'
+          - name: 'ssp2'
+            title: 'ssp2'
+          - name: 'ssp3'
+            title: 'ssp3'
+          - name: 'ssp4'
+            title: 'ssp4'
+          - name: 'ssp5'
+            title: 'ssp5'
+            
     dataslots:
       - name: Boundary File
         description:
