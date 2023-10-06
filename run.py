@@ -82,7 +82,7 @@ archive = glob(inputs_path + "/**/*.zip", recursive = True)
 
 matches = []
 for match in archive:
-    if "downscaled" in match:
+    if ".zip" in match:
         matches.append(match)
 check = []
 if len(matches) == 1:
